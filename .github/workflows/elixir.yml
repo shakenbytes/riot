@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: riot-api
-        path: '*'
+        path: '_build'
 
   test:
     needs: [build]
@@ -47,7 +47,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: riot-api
-          path: '*'
+          path: '_build'
       - run: mix test
   
   deploy:
