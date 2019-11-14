@@ -46,6 +46,9 @@ jobs:
       
       runs-on: ubuntu-latest
       
+      container:
+        image: heroku:heroku
+      
       steps:
         - uses: actions/heroku@1.0.0
         - name: GitHub Action for Heroku    
