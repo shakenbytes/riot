@@ -16,6 +16,11 @@ jobs:
         mix local.rebar --force
         mix local.hex --force
         mix deps.get
+    - uses: actions/upload-artifact@master
+      with:
+        name: riot-workflow
+        path: ./ 
+           
 
   test:
     needs: [build]
