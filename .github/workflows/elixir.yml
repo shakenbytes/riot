@@ -16,6 +16,10 @@ jobs:
         mix local.rebar --force
         mix local.hex --force
         mix deps.get
+    - name: Upload riot-api artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: riot-api
 
   test:
     needs: [build]
@@ -38,7 +42,10 @@ jobs:
         with:
           otp-version: 22.x
           elixir-version: 1.9.x
-      - run: mix deps.get
+      - name: Download riot-api artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: riot-api
       - run: mix test
   
   deploy:
@@ -48,6 +55,7 @@ jobs:
     steps:
       - name: "GitHub Action for Heroku"
         uses: actions/heroku@1.0.0
+      - run: heroku login
       - run: heroku container:login 
       - run: heroku container:push -a riot-workflow web
       - run: heroku container:release -a riot-workflow web
