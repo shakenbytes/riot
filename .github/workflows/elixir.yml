@@ -43,11 +43,7 @@ jobs:
         with:
           otp-version: 22.x
           elixir-version: 1.9.x
-      - name: Download riot-api artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: riot-api
-          path: './'
+      - run: mix deps.get
       - run: mix test
   
   deploy:
