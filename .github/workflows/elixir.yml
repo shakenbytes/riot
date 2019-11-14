@@ -51,3 +51,7 @@ jobs:
       - run: heroku login 
       - run: heroku push
       - run: heroku release
+        
+    env:
+      CI: true
+      HEROKU_APP: 'riot-workflow'
