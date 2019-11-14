@@ -51,21 +51,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: login
-      uses: actions/heroku@master
+    - name: login and push to heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      with:
-        args: container:login
-    - name: push
-      uses: actions/heroku@master
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      with:
-        args: container:push -a riot-workflow web
-    - name: release
-      uses: actions/heroku@master
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      with:
-        args: container:release -a riot-workflow web
+      run: |
+        heroku container:login
+        heroku container:push
+        heroku container:push -a riot-workflow web
+        heroku container:release -a riot-workflow web
