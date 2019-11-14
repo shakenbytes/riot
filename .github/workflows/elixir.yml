@@ -50,6 +50,6 @@ jobs:
     
     runs-on: [ubuntu-latest]
     steps:
-      - name: "heroku login"
-      - uses: actions/heroku@1.0.0
-      - run: heroku login 
+      - name: "GitHub Action for Heroku"
+        uses: actions/heroku@1.0.0
+      - run: login 
