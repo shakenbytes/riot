@@ -49,7 +49,9 @@ jobs:
       steps:
         - uses: actions/heroku@1.0.0
         - name: GitHub Action for Heroku    
-        
+        - run: |
+            heroku login
+            
           env:
             CI: true
           
