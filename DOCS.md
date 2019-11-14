@@ -1,6 +1,6 @@
 # RIOT
 
-Event workflow monitoring ecosystem.
+Application Workflow Monitoring
 
 The main idea is being able to monitor application workflows throught transitions and alert when there is unexpected behaviour with them.
 
