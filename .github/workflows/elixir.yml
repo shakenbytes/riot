@@ -4,7 +4,8 @@ on: push
 
 jobs:
   build:
-
+    name: "build"
+    
     runs-on: ubuntu-latest
 
     container:
@@ -19,6 +20,8 @@ jobs:
         mix deps.get
 
   test:
+    name: "test"
+    needs: [build]
     
     runs-on: ubuntu-latest
 
@@ -40,3 +43,13 @@ jobs:
           elixir-version: 1.9.x
       - run: mix deps.get
       - run: mix test
+  
+  deploy:
+    name: "deploy"
+    needs: [test]
+    
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: "heroku login"
+      - uses: actions/heroku@1.0.0
+      - run: heroku login 
