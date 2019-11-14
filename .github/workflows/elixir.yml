@@ -46,18 +46,25 @@ jobs:
       - run: mix deps.get
       - run: mix test
   
-  deploy:
-    needs: [test]
-    
-    runs-on: [ubuntu-latest]
+  release:
+    runs-on: ubuntu-latest
     steps:
-      - name: "GitHub Action for Heroku"
-        uses: actions/heroku@1.0.0
-      - run: heroku login
-      - run: heroku container:login 
-      - run: heroku container:push -a riot-workflow web
-      - run: heroku container:release -a riot-workflow web
-        
-    env:
-      CI: true
-      HEROKU_APP: 'riot-workflow'
+    - uses: actions/checkout@master
+    - name: login
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:login
+    - name: push
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:push -a riot-workflow web
+    - name: release
+      uses: actions/heroku@master
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      with:
+        args: container:release -a riot-workflow web
