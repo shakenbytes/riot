@@ -40,3 +40,15 @@ jobs:
           elixir-version: 1.9.x
       - run: mix deps.get
       - run: mix test
+        
+        
+  deploy:
+      
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: GitHub Action for Heroku
+        - uses: actions/heroku@1.0.0
+          
+    
+    
