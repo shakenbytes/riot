@@ -48,4 +48,4 @@ jobs:
     steps:
       - name: "GitHub Action for Heroku"
         uses: actions/heroku@1.0.0
-      - run: login 
+      - run: heroku login 
