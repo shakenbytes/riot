@@ -16,11 +16,6 @@ jobs:
         mix local.rebar --force
         mix local.hex --force
         mix deps.get
-    - name: Upload riot-api artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: riot-api
-        path: './'
 
   test:
     needs: [build]
@@ -56,6 +51,5 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
         heroku container:login
-        heroku container:push
         heroku container:push -a riot-workflow web
         heroku container:release -a riot-workflow web
