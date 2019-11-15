@@ -1,18 +1,33 @@
 {
-  "repository": {},
-  "license": "MIT",
+  "name": "riot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
   "scripts": {
-    "deploy": "brunch build --production",
-    "watch": "brunch watch --stdin"
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakenbytes/riot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shakenbytes/riot/issues"
+  },
+  "homepage": "https://github.com/shakenbytes/riot#readme",
   "dependencies": {
-    "phoenix": "file:deps/phoenix",
-    "phoenix_html": "file:deps/phoenix_html"
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "babel-brunch": "6.0.6",
-    "brunch": "2.10.7",
-    "clean-css-brunch": "2.10.0",
-    "uglify-js-brunch": "2.1.1"
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.7",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
   }
 }
