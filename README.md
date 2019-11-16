@@ -26,6 +26,7 @@ New -> Placed
 
 Get Workflow
 [GET] /api/workflows/1
+```
 {
   "hooks" : {
     "error_hook_url" : "https://superorders.com/hooks/notifyError",
@@ -69,7 +70,7 @@ Get Workflow
     }
   ]
 }
-
+```
 [GET]
 
 Call Action
@@ -77,14 +78,17 @@ Call Action
 
 Configure Transition Rule
 [POST] /api/workflows/{workflow_id}/transitions/{transition_id}/rules
+```
 {
   "name": "process_order_duration",
   "metadata": [{"key": "duration", "value": "24h"}]
-
 }
+```
 
 Send Action
 [POST] /api/tracker/sendAction/
+
+```
 {
   "workflow" : "process_order",
   "action" : "create_new_order",
@@ -92,9 +96,11 @@ Send Action
     { "key" : "order_id", "value" : 1 }
   ]
 }
-
+```
 Send Action
 [POST] /api/tracker/sendAction/
+
+```
 {
   "workflow" : "process_order",
   "action" : "place_order",
@@ -102,3 +108,4 @@ Send Action
     { "key" : "order_id", "value" : 1 }
   ]
 }
+```
