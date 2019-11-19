@@ -1,20 +1,22 @@
 # riot
 Application Workflow Monitoring
 
-Workflow
+The purpose of this project is to monitor business workflows and notify when something unexpected happens.
+
+
+Components of a workflow:
 - Actions
 - States
 - Transitions
 
-
-Process Order Workflow
+Process Order Workflow Example
 New -> Placed -> Paid -> Shipped -> Delivered
 
 
-Create Order Action
+Create Order Action Example
 - New
 
-Place Order Action
+Place Order Action Example
 - First Transitition
 - New -> Placed
 
