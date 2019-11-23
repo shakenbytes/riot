@@ -1,5 +1,7 @@
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Shaken-Bytes/riot-dashboard)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/shakenbytes/riot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/shakenbytes/riot?targetFile=package.json)
+
 # riot
 Application Workflow Monitoring
 
