@@ -77,6 +77,10 @@ Get Workflow
   ]
 }
 ```
+Get Workflow
+[GET]
+/api/workflows/{workflow_id}
+
 [GET]
 
 Call Action
