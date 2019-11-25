@@ -1,13 +1,11 @@
 import express from "express";
 const app = express();
+const port = process.env.port || 8080;
+
+// Midleware setup
 express.json();
-const port = 8080; // default port to listen
 
-// define a route handler for the default home page
-app.get("/", (req, res) => {
-    res.send("Hello world!");
-});
-
+// Mock workflow
 const workflows = [{
     hooks: {
         error_hook_url: "https://superorders.com/hooks/notifyError",
@@ -56,7 +54,7 @@ const workflows = [{
 // Worker getting workflow configuration
 // and then checking transactions that have that configuration
 app.get("/api/workflows/:workflow_id", (req, res) => {
-    res.send(workflows.find((t) => t.id === req.params.workflow_id));
+    Ok(res, workflows.find((t) => t.id === req.params.workflow_id));
 });
 
 /*
@@ -66,45 +64,29 @@ against the rules and notify if any rule is violated
 
 // Configure Transition Rule
 app.post("/api/workflows/:workflow_id/transitions/:transition_id/rules", (req, res) => {
-    // {
-    //     "workflow" : "process_order",
-    //         "action" : "create_new_order",
-    //             "metadata" : [
-    //                 { "key": "order_id", "value": 1 }
-    //             ]
-    // }
-    const reqBody = req.body;
     const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
 
-    switch (reqBody.action) {
-        case "create_new_order":
-
-            break;
-
-        default:
-            break;
-    }
-
-    res.send(workflowToUpdate);
+    Ok(res, workflowToUpdate);
 });
 
 app.post("/api/workflows/:workflow_id/states", (req, res) => {
     const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
     workflowToUpdate.states.push(req.body.state);
 
-    res.send({});
+    Ok(res, workflowToUpdate);
 });
 
 app.post("/api/workflows/:workflow_id/transitions", (req, res) => {
     const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
     workflowToUpdate.transitions.push(req.body.state);
 
-    res.send({});
+    Ok(res, workflowToUpdate);
 });
 
 // start the Express server
 app.listen(port, () => {
-
     // tslint:disable-next-line:no-console
     console.log(`server started at http://localhost:${port}`);
 });
+
+const Ok = (response: express.Response, body: any) => response.status(200).send(body);
