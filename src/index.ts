@@ -5,6 +5,8 @@ const port = process.env.port || 8080;
 // Midleware setup
 express.json();
 
+const Ok = (response: express.Response, body: any) => response.status(200).send(body);
+
 // Mock workflow
 const workflows = [{
     hooks: {
@@ -88,5 +90,3 @@ app.listen(port, () => {
     // tslint:disable-next-line:no-console
     console.log(`server started at http://localhost:${port}`);
 });
-
-const Ok = (response: express.Response, body: any) => response.status(200).send(body);
