@@ -8,7 +8,8 @@
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,16 @@
   },
   "homepage": "https://github.com/shakenbytes/riot#readme",
   "dependencies": {
+    "@types/supertest": "^2.0.8",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.12.7",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.2.0",
     "ts-node": "^8.5.2",
     "tslint": "^5.20.1",
     "typescript": "^3.7.2"
