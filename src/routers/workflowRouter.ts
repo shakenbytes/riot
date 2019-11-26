@@ -1,7 +1,7 @@
-import { Router, Request, Response } from "express";
+import { Request, Response, Router } from "express";
 import WorkflowController from "../controllers/workflowController";
 
-var router = Router();
+const router = Router();
 // GET api/workflows/
 // Get all the registered workflows
 router.get("/", WorkflowController.getAll);
@@ -22,6 +22,5 @@ router.post("/:workflow_id/states", WorkflowController.createState);
 
 router.post("/:workflow_id/transitions", WorkflowController.createTransition);
 
-//export this router to use in our app.ts
+// export this router to use in our app.ts
 export default router;
- 

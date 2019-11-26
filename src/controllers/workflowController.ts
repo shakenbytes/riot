@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-//TODO: Move the Workflow entity to a class then: import Workflow from '../models/workflow';
-//TODO: use something like diskbd to use this JSON as a local database
+// TODO: Move the Workflow entity to a class then: import Workflow from '../models/workflow';
+// TODO: use something like diskbd to use this JSON as a local database
 const workflows = [{
     hooks: {
         error_hook_url: "https://superorders.com/hooks/notifyError",
@@ -48,30 +48,30 @@ const Ok = (response: Response, body: any) => response.status(200).send(body);
 
 class WorkflowController {
 
-    static getAll = async (req: Request, res: Response) => {
+    public static getAll = async (req: Request, res: Response) => {
         Ok(res, workflows);
-    };
+    }
 
-    static getById = async (req: Request, res: Response) => {
+    public static getById = async (req: Request, res: Response) => {
         Ok(res, workflows.find((t) => t.id === req.params.workflow_id));
-    };
+    }
 
-    static createRule = async (req: Request, res: Response) => {
+    public static createRule = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
         Ok(res, workflowToUpdate);
-    };
+    }
 
-    static createState = async (req: Request, res: Response) => {
+    public static createState = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
         workflowToUpdate.states.push(req.body.state);
         Ok(res, workflowToUpdate);
-    };
+    }
 
-    static createTransition = async (req: Request, res: Response) => {
+    public static createTransition = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
         workflowToUpdate.transitions.push(req.body.state);
         Ok(res, workflowToUpdate);
-    };
+    }
 
-};
+}
 export default WorkflowController;
