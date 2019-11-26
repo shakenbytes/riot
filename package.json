@@ -8,6 +8,7 @@
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
+    "dev": "nodemon --exec ts-node src/index.ts --watch src",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -31,6 +32,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.7",
     "jest": "^24.9.0",
+    "nodemon": "^2.0.1",
     "supertest": "^4.0.2",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.2",
