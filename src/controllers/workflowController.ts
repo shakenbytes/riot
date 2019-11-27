@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import { BaseController } from "./baseController";
+
 // TODO: Move the Workflow entity to a class then: import Workflow from '../models/workflow';
 // TODO: use something like diskbd to use this JSON as a local database
 const workflows = [{
@@ -44,33 +46,32 @@ const workflows = [{
         }
     ]
 }];
-const Ok = (response: Response, body: any) => response.status(200).send(body);
 
-class WorkflowController {
+class WorkflowController extends BaseController {
 
     public static getAll = async (req: Request, res: Response) => {
-        Ok(res, workflows);
+        res.ok(workflows);
     }
 
     public static getById = async (req: Request, res: Response) => {
-        Ok(res, workflows.find((t) => t.id === req.params.workflow_id));
+        res.ok(workflows.find((t) => t.id === req.params.workflow_id));
     }
 
     public static createRule = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
-        Ok(res, workflowToUpdate);
+        res.ok(workflowToUpdate);
     }
 
     public static createState = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
         workflowToUpdate.states.push(req.body.state);
-        Ok(res, workflowToUpdate);
+        res.ok(workflowToUpdate);
     }
 
     public static createTransition = async (req: Request, res: Response) => {
         const workflowToUpdate = workflows.find((t) => t.id === req.params.wokflow_id);
         workflowToUpdate.transitions.push(req.body.state);
-        Ok(res, workflowToUpdate);
+        res.ok(workflowToUpdate);
     }
 
 }
