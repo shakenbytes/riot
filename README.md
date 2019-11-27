@@ -14,6 +14,8 @@ We want to able to track a business workflow from its initial state to the desir
 
 Notifications will be triggered based on transition rules.
 
+Want to contribute? visit [CONTRIBUTION](CONTRIBUTION.md)
+
 ## Workflow
 
 A workflow is a set of actions.
