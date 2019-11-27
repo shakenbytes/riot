@@ -2,6 +2,8 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/shakenbytes/riot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/shakenbytes/riot?targetFile=package.json)
 
+[![Actions Status](https://github.com/shakenbytes/riot/workflows/ci/badge.svg)](https://github.com/riot/workflows/actions)
+
 
 # riot
 Application Workflow Monitoring
