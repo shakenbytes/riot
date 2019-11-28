@@ -26,6 +26,9 @@
     "url": "https://github.com/shakenbytes/riot/issues"
   },
   "homepage": "https://github.com/shakenbytes/riot#readme",
+  "engines": {
+    "node": "12.x"
+  }
   "dependencies": {
     "@types/supertest": "2.0.8",
     "express": "4.17.1"
