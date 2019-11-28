@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/shakenbytes/riot#readme",
   "engines": {
-    "node": "12.x"
+    "node": "10.x"
   },
   "dependencies": {
     "@types/supertest": "2.0.8",
