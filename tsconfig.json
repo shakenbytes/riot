@@ -2,9 +2,11 @@
   "compilerOptions": {
       "module": "commonjs",
       "esModuleInterop": true,
+      "experimentalDecorators": true,
       "target": "es6",
       "noImplicitAny": true,
       "moduleResolution": "node",
+    //   "watch": true,
       "sourceMap": true,
       "outDir": "dist",
       "baseUrl": ".",
