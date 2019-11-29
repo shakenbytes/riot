@@ -15,7 +15,7 @@ export class MainRouter {
     }
 
     public loadRoutes() {
-        subscribers.map((val) => {
+        subscribers.forEach((val) => {
             this.setRoutes(val);
         });
         return this.router;

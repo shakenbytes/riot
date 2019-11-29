@@ -17,7 +17,7 @@ mainRouter.addControllers(
 express.json();
 // Routers config
 app.use("/api/workflows", workflowsRouter);
-app.use("/api/", mainRouter.loadRoutes());
+app.use("/api", mainRouter.loadRoutes());
 
 // Export express instance
 export default app;
