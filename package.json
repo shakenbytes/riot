@@ -31,6 +31,11 @@
   "engines": {
     "node": "10.x"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && npm test"
+    }
+  },
   "dependencies": {
     "@types/supertest": "2.0.8",
     "express": "4.17.1",
@@ -42,6 +47,7 @@
     "@types/jest": "24.0.23",
     "@types/node": "12.12.14",
     "@types/swagger-ui-express": "^4.1.0",
+    "husky": "3.1.0",
     "jest": "24.9.0",
     "nodemon": "2.0.1",
     "supertest": "4.0.2",
