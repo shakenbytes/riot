@@ -10,7 +10,9 @@
     "start": "node .",
     "dev": "nodemon --exec ts-node src/index.ts --watch src",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "tsoa:routes": "tsoa routes",
+    "tsoa:swagger": "tsoa swagger"
   },
   "repository": {
     "type": "git",
@@ -36,18 +38,21 @@
   },
   "dependencies": {
     "@types/supertest": "2.0.8",
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "swagger-ui-express": "4.1.2",
+    "tsoa": "2.5.9"
   },
   "devDependencies": {
     "@types/express": "4.17.2",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.14",
+    "@types/swagger-ui-express": "4.1.0",
     "husky": "3.1.0",
     "jest": "24.9.0",
     "nodemon": "2.0.1",
     "supertest": "4.0.2",
     "ts-jest": "24.2.0",
-    "ts-node": "8.5.4",
+    "ts-node": "8.5.3",
     "tslint": "5.20.1",
     "typescript": "3.7.3"
   }
