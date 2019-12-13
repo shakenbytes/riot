@@ -16,25 +16,7 @@ Notifications will be triggered based on transition rules.
 
 Want to contribute? visit [CONTRIBUTION](CONTRIBUTING.md)
 
-## Workflow
+## What's going on?
 
-A workflow is a set of actions.
-
-## Action
-
-Actions execute transitions.
-
-## Transition
-
-Transitions move a workflow from one state to another. Transitions defined the rules that will be used to monitor the events.
-
-## State
-
-Workflows have a current state, which is determined by the last transition executed by an action.
-
-### Examples - Process Order Workflow
-
-
-### Example - Tracking Events
-
-Having the workflow `process_order` if we wanted to track an event when calling the action `create_new_order`.
+We are currently defining the design of this thing, jump in and contribute 
+https://github.com/shakenbytes/riot/issues/33#issuecomment-559291653
