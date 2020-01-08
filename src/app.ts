@@ -9,14 +9,14 @@ express.json();
 
 RegisterRoutes(app);
 
-try {
-    // tslint:disable-next-line: no-var-requires
-    const swaggerDocument = require("../dist/swagger.json");
-    app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-} catch (err) {
-    // tslint:disable-next-line: no-console
-    console.log("Unable to load swagger.json", err);
-}
+// try {
+//     // tslint:disable-next-line: no-var-requires
+//     const swaggerDocument = require("../dist/swagger.json");
+//     app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// } catch (err) {
+//     // tslint:disable-next-line: no-console
+//     console.log("Unable to load swagger.json", err);
+// }
 
 app.use("/api/workflows", workflowsRouter);
 

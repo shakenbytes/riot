@@ -25,7 +25,8 @@ const workflows = [{
         "placed",
         "paid",
         "shipped",
-        "delivered"
+        "delivered",
+        "cancelled"
     ],
     transitions: [
         {
