@@ -39,7 +39,7 @@
   "dependencies": {
     "@types/supertest": "2.0.8",
     "express": "4.17.1",
-    "swagger-ui-express": "4.1.2",
+    "swagger-ui-express": "4.1.4",
     "tsoa": "2.5.14"
   },
   "devDependencies": {
